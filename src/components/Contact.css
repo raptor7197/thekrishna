@@ -1,0 +1,84 @@
+.contact {
+    padding: 8rem 2rem 2rem;
+    background-color: #0f0f0f;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.relative-z a {
+    pointer-events: auto;
+}
+
+.contact-title {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.contact-email {
+    font-size: 2rem;
+    color: var(--accent-color);
+    display: inline-block;
+    margin-bottom: 4rem;
+    transition: opacity 0.3s ease;
+}
+
+.contact-email:hover {
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 6rem;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.footer {
+    border-top: 1px solid #ccc8c8;
+    padding-top: 2rem;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.trail-image {
+    position: fixed;
+    /* Fixed to viewport to follow mouse seamlessly */
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-email {
+        font-size: 1.5rem;
+    }
+}
