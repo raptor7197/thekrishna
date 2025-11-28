@@ -2,10 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import gsap from 'gsap';
 import './Marquee.css';
 
-const logos = [
-    "Apple", "Google", "Nike", "IBM", "Sony", "Amazon", "Microsoft", "Netflix", "Tesla", "SpaceX"
-];
-
 const GITHUB_USERNAME = 'raptor7197';
 const CONTRIBUTION_API = `https://github-contributions-api.deno.dev/${GITHUB_USERNAME}.json`;
 
@@ -19,25 +15,38 @@ const getContributionShade = (count, maxCount) => {
     if (!count) return '#2a2a2a';
     const safeMax = Math.max(maxCount, 1);
     const intensity = Math.min(count / safeMax, 1);
-    const alpha = 0.25 + intensity * 0.65; // range between 0.25 and 0.9
+    const alpha = 0.25 + intensity * 0.65;
     return `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
 };
+const ACHIEVEMENTS = [
+    "2 FIRST-PLACE HACKATHON WINS",
+    "10+ NATIONAL-LEVEL HACKATHONS",
+    "TOP 40 IN AMAZON ML SCHOOL HACK 2025",
+    "5+ CTF's PARTICIPATED",
+    "100+ SECURITY CHALLENGES SOLVED",
+];
+
 
 const Marquee = () => {
-    const marqueeRef = useRef(null);
+    const achieveRef = useRef(null);
     const [contributions, setContributions] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const el = marqueeRef.current;
-
-        gsap.to(el, {
-            xPercent: -50,
-            ease: "none",
-            duration: 20,
-            repeat: -1
-        });
+        gsap.fromTo(
+            achieveRef.current.children,
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                stagger: 0.8,
+                repeat: -1,
+                yoyo: true
+            }
+        );
     }, []);
 
     useEffect(() => {
@@ -85,24 +94,14 @@ const Marquee = () => {
     );
 
     return (
-<section className="marquee-section">
+        <section className="marquee-section">
 
-            <div className="marquee-container">
-                <div className="marquee-content" ref={marqueeRef}>
-                    
-                    {logos.map((logo, i) => (
-                        <span key={i} className="marquee-item">{logo}</span>
-                    ))}
-                    {logos.map((logo, i) => (
-                        <span key={`dup-${i}`} className="marquee-item">{logo}</span>
-                    ))}
-                </div>
-            </div>
+            
 
             <div className="stats-container">
-            <div className="stat-item">
+                <div className="stat-item">
                     <h3>500+</h3>
-                    <p>CUPS OF COFFEES DRANK</p>
+                    <p>CUPS OF COFFEE DRANK</p>
                 </div>
                 <div className="stat-item">
                     <h3>1.7K+</h3>
@@ -112,12 +111,13 @@ const Marquee = () => {
                     <h3>10M+</h3>
                     <p>AI TOKENS USED</p>
                 </div>
-                
             </div>
 
+            {/* GitHub Activity */}
             <div className="github-section">
                 <h4>PERSONAL GITHUB ACTIVITY</h4>
                 <p className="github-subtitle">(Work commits are hiding in another dimension)</p>
+
                 <div className="github-grid">
                     {isLoading && <div className="github-status">Fetching commits...</div>}
 
@@ -143,6 +143,14 @@ const Marquee = () => {
                     )}
                 </div>
             </div>
+            <div className="achievements-container">
+                <div className="achievements-inner" ref={achieveRef}>
+                    {ACHIEVEMENTS.map((text, i) => (
+                        <span key={i} className="achievement-item">{text}</span>
+                    ))}
+                </div>
+            </div>
+
         </section>
     );
 };

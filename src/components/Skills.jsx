@@ -23,7 +23,6 @@ const skillsData = [
             { name: "Vue.js", color: "#4FC08D" },
             { name: "Node.js", color: "#339933" },
             { name: "Next.js", color: "#FFFFFF" },
-            { name: "Vite", color: "#646CFF" },
             { name: "Express", color: "#FFFFFF" },
 
             { name: "Tailwind CSS", color: "#06B6D4" },
@@ -46,6 +45,8 @@ const skillsData = [
             { name: "Google Cloud", color: "#4285F4" },
             { name: "Linux", color: "#FCC624" },
             { name: "MongoDB", color: "#47A248" },
+            { name: "ChromaDB", color: "#f0f0f0" },
+            { name: "Postgresql", color: "#336791" },
             { name: "MySQL", color: "#4479A1" },
             { name: "Figma", color: "#F24E1E" },
             { name: "WordPress", color: "#21759B" },
@@ -60,8 +61,12 @@ const skillsData = [
             { name: "Pennylane (QML Library)", color: "#F7DF1E" },
             { name: "Qiskit", color: "#3776AB" },
             { name: "Mitiq (Quantum error detection library)", color: "#00ADD8" },
-            { name: "", color: "#E34F26" },
-            { name: "CSS3", color: "#1572B6" }
+            { name: "Assembly", color: "#E34F26" },
+            { name: "Wordpress", color: "#1572B6" },
+            { name: "Burpsuite", color: "#6f341d" },
+            { name: "GitLab", color: "#E34F26" },
+
+
         ]
     }
 
