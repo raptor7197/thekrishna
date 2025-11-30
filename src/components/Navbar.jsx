@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import './Navbar.css';
 
 const Navbar = () => {
     const navRef = useRef(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         gsap.fromTo(navRef.current,
@@ -12,42 +13,39 @@ const Navbar = () => {
         );
     }, []);
 
+    const handleNavClick = (e, selector) => {
+        e.preventDefault();
+        setIsMenuOpen(false);
+        document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <nav className="navbar" ref={navRef}>
-<a href="/">
+            <a href="/">
                 <div className="logo">Vamsi Krishna</div>
-
-</a>
-            <div className="status-indicator">
-                <span className="dot pulsating-dot"></span> Available to work
+            </a>
+            
+            <div className="mobile-menu-icon" onClick={toggleMenu}>
+                <div className={`menu-bar ${isMenuOpen ? 'open' : ''}`}></div>
+                <div className={`menu-bar ${isMenuOpen ? 'open' : ''}`}></div>
             </div>
 
-            <ul className="nav-links">
+            <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
                 <li>
-                    <a href="#about" onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
-                    }}>About</a>
-                </li>
-                
-                <li>
-                    <a href="#work" onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
-                    }}>Work</a>
+                    <a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About</a>
                 </li>
                 <li>
-                    <a href="#skills" onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector('#skills').scrollIntoView({ behavior: 'smooth' });
-                    }}>Skills</a>
+                    <a href="#work" onClick={(e) => handleNavClick(e, '#work')}>Work</a>
                 </li>
-                
                 <li>
-                    <a href="#contact" onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-                    }}>get in touch</a>
+                    <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
+                </li>
+                <li>
+                    <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>get in touch</a>
                 </li>
                 <li>
                     <a href="./Vamsi Krishna Resume.pdf" download>resume</a>
