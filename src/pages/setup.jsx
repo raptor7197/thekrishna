@@ -32,7 +32,7 @@ const Setup = () => {
     { name: 'Dark Reader', url: 'https://darkreader.org/', review: 'i hate light mode' },
     { name: 'Firefox relay', url: 'https://relay.firefox.com/', review: 'do not want my inbox spammed ' },
     { name: 'Bitwarden Password manager', url: 'https://bitwarden.com/', review: 'to keep my secrets safe ' },
-    { name: 'React Developer Tools', url: 'https://reactjs.org/', review: 'goog for react debugging' },
+    { name: 'React Developer Tools', url: 'https://reactjs.org/', review: 'good for react debugging' },
     { name: 'Firefox Multi-Account Containers', url: 'https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/', review: 'to keep multiple accounts signed in ' },
   ];  
 
