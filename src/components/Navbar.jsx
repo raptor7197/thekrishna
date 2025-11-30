@@ -14,7 +14,10 @@ const Navbar = () => {
 
     return (
         <nav className="navbar" ref={navRef}>
-            <div className="logo">Vamsi Krishna</div>
+<a href="/">
+                <div className="logo">Vamsi Krishna</div>
+
+</a>
             <div className="status-indicator">
                 <span className="dot pulsating-dot"></span> Available to work
             </div>
@@ -26,17 +29,18 @@ const Navbar = () => {
                         document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
                     }}>About</a>
                 </li>
-                <li>
-                    <a href="#skills" onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector('#skills').scrollIntoView({ behavior: 'smooth' });
-                    }}>Skills</a>
-                </li>
+                
                 <li>
                     <a href="#work" onClick={(e) => {
                         e.preventDefault();
                         document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
                     }}>Work</a>
+                </li>
+                <li>
+                    <a href="#skills" onClick={(e) => {
+                        e.preventDefault();
+                        document.querySelector('#skills').scrollIntoView({ behavior: 'smooth' });
+                    }}>Skills</a>
                 </li>
                 
                 <li>
@@ -44,6 +48,9 @@ const Navbar = () => {
                         e.preventDefault();
                         document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
                     }}>get in touch</a>
+                </li>
+                <li>
+                    <a href="./Vamsi Krishna Resume.pdf" download>resume</a>
                 </li>
             </ul>
         </nav>

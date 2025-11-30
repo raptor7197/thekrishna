@@ -57,8 +57,8 @@
     height: 100%;
     background-color: #22c55e;
     border-radius: 50%;
-    animation: pulsate 2s infinite;
-    opacity: 0.4;
+    animation: pulsate 1.5s infinite;
+    opacity: 0.9;
 }
 
 @keyframes pulsate {
