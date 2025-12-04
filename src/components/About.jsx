@@ -22,13 +22,35 @@ const About = () => {
                 const data = await response.json();
 
                 const pushEvent = data.find(event => event.type === 'PushEvent');
+                // see only push events 
 
                 if (pushEvent) {
+                    let repoName = pushEvent.repo.name;
+                    let commitMessage = '';
+                    let commitUrl = '';
+                    let commitDate = new Date(pushEvent.created_at).toLocaleDateString();
+
+                    if (pushEvent.payload.commits && pushEvent.payload.commits.length > 0) {
+                        commitMessage = pushEvent.payload.commits[0].message;
+                        commitUrl = `https://github.com/${repoName}/commit/${pushEvent.payload.commits[0].sha}`;
+                    } else if (pushEvent.payload.head) {
+                        try {
+                            const commitResponse = await fetch(`https://api.github.com/repos/${repoName}/commits/${pushEvent.payload.head}`);
+                            const commitData = await commitResponse.json();
+                            commitMessage = commitData.commit.message;
+                            commitUrl = commitData.html_url;
+                        } catch (err) {
+                            console.error('Error fetching specific commit:', err);
+                            commitMessage = 'Updated repository';
+                            commitUrl = `https://github.com/${repoName}`;
+                        }
+                    }
+
                     setLatestCommit({
-                        repo: pushEvent.repo.name,
-                        message: pushEvent.payload.commits[0].message,
-                        date: new Date(pushEvent.created_at).toLocaleDateString(),
-                        url: `https://github.com/${pushEvent.repo.name}/commit/${pushEvent.payload.commits[0].sha}`
+                        repo: repoName,
+                        message: commitMessage,
+                        date: commitDate,
+                        url: commitUrl
                     });
                 }
             } catch (error) {
@@ -117,25 +139,23 @@ const About = () => {
                 <h2 className="section-title" ref={headingRef}>About Me</h2>
                 <div className="about-content" ref={textRef}>
                     <p>
-                        I'm a passionate developer with a keen eye for design. I love building
-                        interfaces that are not only functional but also delightful to use.
-                        My journey in web development has been driven by a curiosity to
-                        understand how things work and a desire to create things that
-                        people love.
-                    </p>
-                    <p>
-                        I specialize in the React ecosystem, leveraging tools like
-                        <span className="tech-badge">React</span>,
-                        <span className="tech-badge">Next</span>,
-                        <span className="tech-badge">Tailwind CSS</span>, and
-                        <span className="tech-badge">GSAP</span> to bring ideas to life.
-                        Every project is an opportunity to push boundaries and craft experiences
-                        that leave a lasting impression.
-                    </p>
-                </div>
+  I'm a frontend developer who enjoys designing and building clean, modern web experiences. 
+  I focus on creating interfaces that are fast, intuitive, and visually engaging, blending 
+  functionality with thoughtful design.
+</p>
+<p>
+  I currently work in the React ecosystem, leveraging tools like 
+  <span className="tech-badge">React</span>, 
+  <span className="tech-badge">Next.js</span>, 
+  <span className="tech-badge">Tailwind CSS</span>, and 
+  <span className="tech-badge">GSAP</span> to bring ideas to life. 
+  Every project is a chance to explore new interactions, refine details, and build experiences 
+  that feel memorable and enjoyable to use.
+</p>
+</div>
 
                 <div className="presently-working" ref={projectRef}>
-                    <h3 className="sub-heading">Presently working on</h3>
+                    <h3 className="sub-heading">what I am upto at present</h3>
                     <div className="project-list-item">
                         <div className="project-details">
                             {loading ? (
@@ -151,7 +171,7 @@ const About = () => {
                                 <>
                                     <h4>Agentic Coding Assistant</h4>
                                     <p>
-                                        Building an advanced AI-powered coding assistant that helps developers
+                                        Building an AI-powered coding assistant that helps developers
                                         write better code faster. Focusing on agentic behaviors and deep
                                         codebase understanding.
                                     </p>

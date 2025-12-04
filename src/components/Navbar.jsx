@@ -45,7 +45,7 @@ const Navbar = () => {
                     <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
                 </li>
                 <li>
-                    <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>get in touch</a>
+                    <a href="/setup" >my setup</a>
                 </li>
                 <li>
                     <a href="./Vamsi Krishna Resume.pdf" download>resume</a>

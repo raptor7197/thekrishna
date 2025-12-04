@@ -99,64 +99,7 @@
     display: inline-block;
 }
 
-.setup-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    color: white;
-    border: 2px solid white;
-    /* White border as requested */
-}
 
-.setup-link:hover,
-.setup-link:focus {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-.setup-popup {
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: white;
-    color: #000;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.setup-popup::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
-}
-
-.setup-link-wrapper:hover .setup-popup,
-.setup-link:focus+.setup-popup {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
 
 .footer {
     border-top: 1px solid #333;

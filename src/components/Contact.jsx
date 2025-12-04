@@ -271,12 +271,7 @@ const Contact = () => {
                         >
                             <GitHubIcon style={{ color: 'green' }} />
                         </a>
-                        <div className="setup-link-wrapper">
-                            <Link to="/setup" className="setup-link" aria-label="My Setup">
-                                <DevicesIcon />
-                            </Link>
-                            <div className="setup-popup">Want to see my daily drivers?</div>
-                        </div>
+                        
                     </div>
                     <footer className="footer">
                         <p>&copy; {new Date().getFullYear()} Vamsi Krishna. All rights reserved.</p>
