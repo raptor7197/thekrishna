@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import './About.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,12 +11,37 @@ const About = () => {
     const sectionRef = useRef(null);
     const headingRef = useRef(null);
     const textRef = useRef(null);
+    const projectRef = useRef(null);
+    const [latestCommit, setLatestCommit] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Split text into characters for the heading (GSAP.com style)
+        const fetchLatestCommit = async () => {
+            try {
+                const response = await fetch('https://api.github.com/users/raptor7197/events/public');
+                const data = await response.json();
+
+                const pushEvent = data.find(event => event.type === 'PushEvent');
+
+                if (pushEvent) {
+                    setLatestCommit({
+                        repo: pushEvent.repo.name,
+                        message: pushEvent.payload.commits[0].message,
+                        date: new Date(pushEvent.created_at).toLocaleDateString(),
+                        url: `https://github.com/${pushEvent.repo.name}/commit/${pushEvent.payload.commits[0].sha}`
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching GitHub commits:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchLatestCommit();
+
         const split = new SplitType(headingRef.current, { types: 'chars' });
 
-        // Animate heading characters with stagger (GSAP intro style)
         gsap.fromTo(split.chars,
             {
                 opacity: 0,
@@ -38,7 +64,6 @@ const About = () => {
             }
         );
 
-        // Animate text paragraphs with slide-in effect
         const paragraphs = textRef.current.querySelectorAll('p');
         paragraphs.forEach((p, index) => {
             gsap.fromTo(p,
@@ -61,6 +86,25 @@ const About = () => {
             );
         });
 
+        // Animate Project Section
+        gsap.fromTo(projectRef.current,
+            {
+                opacity: 0,
+                y: 50
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: projectRef.current,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+
         return () => {
             split.revert();
         };
@@ -80,10 +124,55 @@ const About = () => {
                         people love.
                     </p>
                     <p>
-                        I specialize in the React ecosystem, leveraging tools like Next.js,
-                        Vite, and GSAP to bring ideas to life. Every project is an opportunity
-                        to push boundaries and craft experiences that leave a lasting impression.
+                        I specialize in the React ecosystem, leveraging tools like
+                        <span className="tech-badge">React</span>,
+                        <span className="tech-badge">Next</span>,
+                        <span className="tech-badge">Tailwind CSS</span>, and
+                        <span className="tech-badge">GSAP</span> to bring ideas to life.
+                        Every project is an opportunity to push boundaries and craft experiences
+                        that leave a lasting impression.
                     </p>
+                </div>
+
+                <div className="presently-working" ref={projectRef}>
+                    <h3 className="sub-heading">Presently working on</h3>
+                    <div className="project-list-item">
+                        <div className="project-details">
+                            {loading ? (
+                                <p>Loading latest activity...</p>
+                            ) : latestCommit ? (
+                                <>
+                                    <h4>{latestCommit.repo}</h4>
+                                    <p className="commit-message">
+                                        {latestCommit.message}
+                                    </p>
+                                </>
+                            ) : (
+                                <>
+                                    <h4>Agentic Coding Assistant</h4>
+                                    <p>
+                                        Building an advanced AI-powered coding assistant that helps developers
+                                        write better code faster. Focusing on agentic behaviors and deep
+                                        codebase understanding.
+                                    </p>
+                                </>
+                            )}
+                        </div>
+                        <div className="project-meta">
+                            <span className="year-badge">
+                                {latestCommit ? latestCommit.date : '2025'}
+                            </span>
+                            <a
+                                href={latestCommit ? latestCommit.url : "#"}
+                                className="project-link"
+                                aria-label="View Project"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <ArrowOutwardIcon />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import DevicesIcon from '@mui/icons-material/Devices';
 import { World } from './ui/globe';
 
 import './Contact.css';
@@ -187,7 +189,7 @@ const Contact = () => {
         if (!container) return; // Ensure container is available
 
         const handleMouseMove = (e) => {
-           
+
             const now = Date.now();
             const dist = Math.hypot(e.clientX - lastPos.current.x, e.clientY - lastPos.current.y);
 
@@ -269,6 +271,12 @@ const Contact = () => {
                         >
                             <GitHubIcon style={{ color: 'green' }} />
                         </a>
+                        <div className="setup-link-wrapper">
+                            <Link to="/setup" className="setup-link" aria-label="My Setup">
+                                <DevicesIcon />
+                            </Link>
+                            <div className="setup-popup">Want to see my daily drivers?</div>
+                        </div>
                     </div>
                     <footer className="footer">
                         <p>&copy; {new Date().getFullYear()} Vamsi Krishna. All rights reserved.</p>

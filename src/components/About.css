@@ -1,10 +1,13 @@
 .about {
     padding: 8rem 2rem;
-    background-color: #203d41;
+    background-color: #050505;
+    /* Deep Black */
     position: relative;
     overflow: hidden;
+    color: #e5e7eb;
 }
 
+/* Subtle Grid Background */
 .about::before {
     content: '';
     position: absolute;
@@ -12,9 +15,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(8, 97, 240, 0.05) 0%, transparent 70%);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    z-index: 0;
     pointer-events: none;
-    z-index: 1;
 }
 
 .about-bg-text {
@@ -24,65 +31,199 @@
     transform: translate(-50%, -50%);
     font-size: 20vw;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(57, 255, 20, 0.03);
+    /* Neon Green Faint */
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
     user-select: none;
+    font-family: 'Inter', sans-serif;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
+    /* Slightly narrower for list view */
     margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
 .section-title {
-    font-size: 5rem;
-    margin-bottom: 4rem;
+    font-size: 4rem;
+    margin-bottom: 3rem;
     font-weight: 800;
-    border-bottom: 2px solid #333;
-    padding-bottom: 2rem;
-    display: inline-block;
-    perspective: 1000px;
+    color: #fff;
     letter-spacing: -0.02em;
+    display: inline-block;
 }
 
 .section-title .char {
     display: inline-block;
     transform-origin: bottom;
+    transition: color 0.3s ease;
+}
+
+.section-title:hover .char {
+    color: #39FF14;
+    /* Neon Green */
 }
 
 .about-content {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: var(--secondary-text);
-    max-width: 900px;
+    color: #a1a1aa;
+    max-width: 800px;
+    margin-bottom: 5rem;
 }
 
 .about-content p {
-    margin-bottom: 2.5rem;
-    transform-origin: center;
-    padding: 1.5rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    margin-bottom: 2rem;
 }
 
-.about-content p:hover {
-    background-color: rgba(8, 99, 245, 0.05);
+/* Tech Badges */
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.6rem;
+    margin: 0 0.3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    top: -2px;
+}
+
+.tech-badge:hover {
+    background: rgba(57, 255, 20, 0.1);
+    border-color: #39FF14;
+    color: #39FF14;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(57, 255, 20, 0.2);
+}
+
+.presently-working {
+    margin-top: 4rem;
+    opacity: 0;
+    /* Initial state for GSAP */
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #71717a;
+    /* Muted gray */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sub-heading::after {
+    content: '●';
+    font-size: 0.8rem;
+    color: #333;
+}
+
+/* Project List Style */
+.project-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-list-item:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.project-details {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.project-details h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    font-weight: 600;
+    font-family: monospace;
+    /* Monospace for repo name */
+}
+
+.commit-message {
+    color: #a1a1aa;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 600px;
+    font-family: monospace;
+    /* Monospace for commit message */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.year-badge {
+    color: #71717a;
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.project-link:hover {
+    background: #39FF14;
+    border-color: #39FF14;
+    color: #000;
+    transform: rotate(45deg);
 }
 
 @media (max-width: 768px) {
+    .about {
+        padding: 6rem 1.5rem;
+    }
+
     .section-title {
         font-size: 3rem;
     }
 
     .about-content {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
-    .about-content p {
-        padding: 1rem;
+    .project-list-item {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .project-meta {
+        width: 100%;
+        justify-content: space-between;
     }
 }
