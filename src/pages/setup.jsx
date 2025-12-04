@@ -40,8 +40,8 @@ const Setup = () => {
     { name: 'Firefox', url: 'https://www.mozilla.org/firefox/', review: 'the best piece of open source software ' },
     { name: 'Brave', url: 'https://brave.com/', review: 'need a chromium based browser on my system' },
     { name: 'Youtube Music', url: 'https://music.youtube.com/', review: 'who dosen\'t listen to music these days' },
-    { name: 'VS Code v 1.106', url: 'https://code.visualstudio.com/', review: 'The editor that started it all for me. Extensions ecosystem is unmatched.' },
-    { name: 'VLC', url: 'https://www.videolan.org/vlc/', review: 'for movies plays anything i throw at it (with necessary codecs ofc )' },
+    { name: 'VS Code v 1.106', url: 'https://code.visualstudio.com/', review: 'the editor that started it all for me, extensions ecosystem is unmatched.' },
+    { name: 'VLC', url: 'https://www.videolan.org/vlc/', review: 'for movies, plays anything i throw at it (with necessary codecs ofc )' },
     { name: 'Neo vim', url: 'https://neovim.io/', review: 'learning curve is steep but worth it' },
     { name: 'Fedora Linux 42', url: 'https://getfedora.org/', review: 'settled on it after distro hopping for a year, works perfectly' },
   ];
