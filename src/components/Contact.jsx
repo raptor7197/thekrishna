@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import DevicesIcon from '@mui/icons-material/Devices';
 import { World } from './ui/globe';
-
 import './Contact.css';
 
 const Contact = () => {
@@ -186,7 +183,7 @@ const Contact = () => {
 
     useEffect(() => {
         const container = containerRef.current;
-        if (!container) return; // Ensure container is available
+        if (!container) return; 
 
         const handleMouseMove = (e) => {
 
@@ -274,7 +271,9 @@ const Contact = () => {
                         
                     </div>
                     <footer className="footer">
-                        <p>&copy; {new Date().getFullYear()} Vamsi Krishna. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} <blockquote className="quote">
+            <p>Vamsi Krishna</p>
+          </blockquote>All rights reserved.</p>
                     </footer>
                 </div>
             </div>
