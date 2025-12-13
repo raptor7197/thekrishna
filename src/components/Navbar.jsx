@@ -29,6 +29,11 @@ const Navbar = () => {
                 <div className="logo">Vamsi Krishna</div>
             </a>
             
+            <div className="status-indicator">
+                <span className="status-dot"></span>
+                <span className="status-text">Available to work</span>
+            </div>
+
             <div className="mobile-menu-icon" onClick={toggleMenu}>
                 <div className={`menu-bar ${isMenuOpen ? 'open' : ''}`}></div>
                 <div className={`menu-bar ${isMenuOpen ? 'open' : ''}`}></div>
@@ -45,7 +50,7 @@ const Navbar = () => {
                     <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
                 </li>
                 <li>
-                    <a href="/setup" style={{ color: 'blue' }}>my setup</a>
+                    <a href="/setup" style={{ color: 'red' }}>my setup</a>
                 </li>
                 <li>
                     <a href="./Vamsi Krishna Resume.pdf" download>resume</a>
