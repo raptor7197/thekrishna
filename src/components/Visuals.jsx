@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import AsciiMap from './AsciiMap';
 import './Visuals.css';
 
-const FLOATING_IMAGE_POOL = ['/1.jpg', '/1.jpg', '/1.jpg', '/1.jpg', '/1.jpg'];
+const FLOATING_IMAGE_POOL = ['/1.jpg', '/2.jpeg', '/3.jpeg', '/4.jpeg', '/5.jpeg','/6.jpeg'];
 
 const Visuals = () => {
     const floatingImages = useMemo(() => {
@@ -13,7 +13,7 @@ const Visuals = () => {
                 src,
                 top: `${Math.random() * 70 + 10}%`,
                 left: `${Math.random() * 70 + 10}%`,
-                size: `${140 + Math.random() * 80}px`,
+                size: `${140 + Math.random() * 120}px`,
                 delay: `${Math.random() * 4}s`,
                 duration: `${12 + Math.random() * 6}s`,
                 rotation: `${Math.random() * 20 - 10}deg`,
