@@ -1,0 +1,130 @@
+.experience-stack-section {
+    position: relative;
+    width: 100%;
+    /* No padding-bottom needed for the scroll space, GSAP handles the pin spacer */
+    background-color: var(--background-color, #0f0f0f);
+    color: var(--text-color, #ffffff);
+    /* height will be controlled */
+}
+
+.experience-stack-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100vh;
+    /* Occupy full viewport for the pin */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+    padding-top: 60px;
+    /* Space for Navbar */
+}
+
+.stack-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.stack-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.stack-header p {
+    color: #888;
+    font-size: 1.1rem;
+}
+
+.experience-list {
+    position: relative;
+    width: 100%;
+    /* Ensure height accommodates the stack */
+    height: 50vh;
+    /* We don't need flex column anymore as cards are absolute */
+}
+
+.stack-card {
+    position: absolute;
+    /* Key change: Absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    border-radius: 20px 20px 0 0;
+    padding: 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    height: 40vh;
+    max-height: 500px;
+    transform-origin: center top;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.card-title h3 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-company {
+    color: #4cd137;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.card-year {
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.card-body {
+    flex: 1;
+    padding-top: 10px;
+}
+
+.card-body p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 600px;
+}
+
+.tech-stack {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    color: #aaa;
+}

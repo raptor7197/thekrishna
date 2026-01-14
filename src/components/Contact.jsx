@@ -183,7 +183,7 @@ const Contact = () => {
 
     useEffect(() => {
         const container = containerRef.current;
-        if (!container) return; 
+        if (!container) return;
 
         const handleMouseMove = (e) => {
 
@@ -234,9 +234,10 @@ const Contact = () => {
         <section className="contact" id="contact" ref={containerRef}>
             <div className="contact-layout">
                 <div className="contact-left">
-                    <div className="globe-container">
+                    {/* remved globe  */}
+                    {/* <div className="globe-container">
                         <World globeConfig={globeConfig} data={sampleArcs} />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="contact-right relative-z">
                     <h2 className="contact-title">Reach me here </h2>
@@ -268,12 +269,12 @@ const Contact = () => {
                         >
                             <GitHubIcon style={{ color: 'green' }} />
                         </a>
-                        
+
                     </div>
                     <footer className="footer">
                         <p>&copy; {new Date().getFullYear()} <blockquote className="quote">
-            <p>Vamsi Krishna</p>
-          </blockquote>All rights reserved.</p>
+                            <p>Vamsi Krishna</p>
+                        </blockquote>All rights reserved.</p>
                     </footer>
                 </div>
             </div>

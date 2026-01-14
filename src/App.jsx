@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes,Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ExperienceStack from './components/ExperienceStack';
 import About from './components/About';
 import Visuals from './components/Visuals';
 import Skills from './components/Skills';
@@ -18,12 +19,13 @@ function Home() {
     <>
       <Hero />
       <About />
+      <ExperienceStack />
       <Projects />
       <Visuals />
       <Skills />
       <Marquee />
       <Contact />
-            <SpeedInsights />
+      <SpeedInsights />
     </>
   );
 }

@@ -50,7 +50,7 @@ const Navbar = () => {
                     <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
                 </li>
                 <li>
-                    <a href="/setup" style={{ color: 'red' }}>my setup</a>
+                    <a href="/setup" style={{ color: '#0cf72bff' }}>my setup</a>
                 </li>
                 <li>
                     <a href="./Vamsi Krishna Resume.pdf" download>resume</a>
