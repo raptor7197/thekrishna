@@ -44,13 +44,16 @@ const Navbar = () => {
                     <a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About</a>
                 </li>
                 <li>
-                    <a href="#work" onClick={(e) => handleNavClick(e, '#work')}>Work</a>
+                    <a href="#work" onClick={(e) => handleNavClick(e, '#work')}>Projects</a>
                 </li>
                 <li>
                     <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Skills</a>
                 </li>
                 <li>
                     <a href="/setup" style={{ color: '#0cf72bff' }}>my setup</a>
+                </li>
+                <li>
+                    <a href="/work-experience" style = {{color: '#00aeffff'}}>work</a>
                 </li>
                 <li>
                     <a href="./Vamsi Krishna Resume.pdf" download>resume</a>

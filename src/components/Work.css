@@ -1,0 +1,201 @@
+.work-page {
+    min-height: 100vh;
+    background-color: var(--background-color, #0f0f0f);
+    color: #fff;
+    padding: 170px 20px 40px;
+    /* Space for navbar */
+    display: flex;
+    flex-direction: column;
+}
+
+.work-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    gap: 40px;
+}
+
+/* Sidebar for Tabs */
+.work-tabs {
+    flex: 0 0 300px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tab-button {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #888;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-button:hover {
+    color: #fff;
+    /* remove background on hover too if they want strictly text? 
+       Let's keep a very subtle one or remove it. User said "remove green around space".
+       I'll make hover just text change to be safe. */
+    background: transparent;
+}
+
+.tab-button.active {
+    background: transparent;
+    /* Green tint */
+    color: #4cd137;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+/* Main Content Area */
+.work-content-area {
+    flex: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.work-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.work-role {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.work-company {
+    font-size: 1.5rem;
+    color: #4cd137;
+    font-family: 'Goldman', cursive;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.work-period {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #aaa;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.work-details h3 {
+    font-size: 1.3rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+    border-left: 3px solid #4cd137;
+    padding-left: 15px;
+}
+
+.work-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.responsibilities-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.responsibilities-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: #bbb;
+    line-height: 1.5;
+}
+
+.responsibilities-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #4cd137;
+}
+
+.tech-section {
+    margin-top: 3rem;
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tech-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #ddd;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    border-color: #4cd137;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .work-container {
+        flex-direction: column;
+    }
+
+    .work-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        padding-right: 0;
+    }
+
+    .tab-button {
+        white-space: nowrap;
+        flex: 0 0 auto;
+    }
+
+    .work-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

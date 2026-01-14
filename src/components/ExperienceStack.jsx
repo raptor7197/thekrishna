@@ -1,5 +1,6 @@
 
 import React, { useRef, useLayoutEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './ExperienceStack.css';
@@ -9,35 +10,43 @@ gsap.registerPlugin(ScrollTrigger);
 const experiences = [
     {
         id: 1,
-        role: "Senior Frontend Engineer",
-        company: "TechFlow Systems",
-        period: "2023 - Present",
-        description: "Leading the frontend team in rebuilding the core platform. Implemented micro-frontends architecture and improved performance scores by 40%.",
-        tech: ["React", "TypeScript", "Next.js", "GraphQL"]
+        role: "Research Intern",
+        company: "Aegion Dynamic Solutions",
+        period: "Jan 2026 - Present",
+        description: "Working on building a Custom Domain Specific language for Internal Use using ANTLR and Go.",
+        tech: ["ANTLR", "Go", "Compilers", "React"]
     },
     {
         id: 2,
-        role: "Creative Developer",
-        company: "Digital Dreams Agency",
-        period: "2021 - 2023",
-        description: "Crafted award-winning interactive websites for global brands. Specialized in WebGL animations and fluid user interfaces.",
-        tech: ["Three.js", "GSAP", "Vue", "WebGL"]
+        role: "Projects Lead",
+        company: "IEEE VIT Vellore",
+        period: "Dec 2025 - Present",
+        description: "Leading technical projects and mentoring junior members. Previously Senior Core and Junior Core member.",
+        tech: ["AWS", "React.js", "Figma", "Project Management"]
     },
     {
         id: 3,
-        role: "Full Stack Developer",
-        company: "StartUp Inc",
-        period: "2019 - 2021",
-        description: "First technical hire. Built the MVP from scratch and scaled it to 100k+ users. Handled both AWS infrastructure and frontend development.",
-        tech: ["Node.js", "React", "AWS", "MongoDB"]
+        role: "Software Engineer Intern",
+        company: "AIAT India",
+        period: "Jul 2025 - Nov 2025",
+        description: "Developed responsive web applications and managed projects using React, AWS, and Git.",
+        tech: ["React.js", "Tailwind CSS", "AWS", "Git"]
     },
     {
         id: 4,
-        role: "UI/UX Engineer",
-        company: "Creative Co",
-        period: "2018 - 2019",
-        description: "Bridged the gap between design and engineering. Created a comprehensive design system used across 5 different products.",
-        tech: ["Figma", "Storybook", "React", "Sass"]
+        role: "Associate Member",
+        company: "The Quantumplators",
+        period: "Feb 2025 - Sep 2025",
+        description: "Researched Quantum Computing concepts and contributed to community knowledge sharing.",
+        tech: ["Quantum Computing", "Research"]
+    },
+    {
+        id: 5,
+        role: "Web & Creatives Volunteer",
+        company: "Intl. Test Conference",
+        period: "Feb 2025 - Jul 2025",
+        description: "Assisted with web development and creative assets for the conference.",
+        tech: ["Web Development", "Design"]
     }
 ];
 
@@ -45,6 +54,7 @@ const ExperienceStack = () => {
     const sectionRef = useRef(null);
     const containerRef = useRef(null);
     const cardsRef = useRef([]);
+    const navigate = useNavigate();
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -134,6 +144,8 @@ const ExperienceStack = () => {
                             key={exp.id}
                             className="stack-card"
                             ref={addToRefs}
+                            onClick={() => navigate('/work', { state: { id: exp.id } })}
+                            style={{ cursor: 'pointer' }}
                         >
                             <div className="card-header">
                                 <div className="card-title">

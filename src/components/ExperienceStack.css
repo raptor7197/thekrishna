@@ -59,11 +59,10 @@
     display: flex;
     flex-direction: column;
     background-color: #1a1a1a;
-    border-radius: 20px 20px 0 0;
-    padding: 40px;
-
+    border-radius: 20px 20px 5px 5px;
+    padding: 30px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -10px 40px rgba(75, 75, 75, 0.5);
     height: 40vh;
     max-height: 500px;
     transform-origin: center top;
@@ -91,6 +90,8 @@
     font-size: 1.2rem;
     margin-top: 5px;
     display: block;
+    font-family: 'Goldman', cursive;
+    letter-spacing: 0.05em;
 }
 
 .card-year {
