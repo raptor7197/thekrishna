@@ -35,7 +35,7 @@ const workData = [
     },
     {
         id: 3,
-        role: "Software Engineer Intern",
+        role: "Software Developer Intern",
         company: "AIAT India",
         period: "Jul 2025 - Nov 2025",
         description: "Worked as a Full Stack Developer intern contributing to various web application projects.",

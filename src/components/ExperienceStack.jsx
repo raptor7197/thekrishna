@@ -26,7 +26,7 @@ const experiences = [
     },
     {
         id: 3,
-        role: "Software Engineer Intern",
+        role: "Software Developer Intern",
         company: "AIAT India",
         period: "Jul 2025 - Nov 2025",
         description: "Developed responsive web applications and managed projects using React, AWS, and Git.",
@@ -144,7 +144,7 @@ const ExperienceStack = () => {
                             key={exp.id}
                             className="stack-card"
                             ref={addToRefs}
-                            onClick={() => navigate('/work', { state: { id: exp.id } })}
+                            onClick={() => navigate('/work-experience', { state: { id: exp.id } })}
                             style={{ cursor: 'pointer' }}
                         >
                             <div className="card-header">
