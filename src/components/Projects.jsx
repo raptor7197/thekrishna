@@ -29,14 +29,14 @@ const projectsData = [
         "url": "https://github.com/raptor7197/scrape-krunch",
         "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000&auto=format&fit=crop"
     },
-    {
-        "id": 4,
-        "title": "Fine-tuned Llama 3",
-        "category": "LLM",
-        "color": "linear-gradient(120deg, #fccb90 0%, #d57eeb 100%)",
-        "url": "https://github.com/username/finetuned-llama",
-        "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
-    },
+    // {
+    //     "id": 4,
+    //     "title": "Fine-tuned Llama 3",
+    //     "category": "LLM",
+    //     "color": "linear-gradient(120deg, #fccb90 0%, #d57eeb 100%)",
+    //     "url": "https://github.com/username/finetuned-llama",
+    //     "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
+    // },
     {
         "id": 5,
         "title": "Kisan Mitra - An Multilingual Farming Assistant",

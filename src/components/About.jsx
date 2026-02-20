@@ -275,7 +275,7 @@ const About = () => {
                 </div>
               ))
             ) : (
-              <p>Nothing in the Invertory in the recent past :(</p>
+              <p>Nothing in the Inventory in the recent past :(</p>
             )}
           </div>
         </div>
