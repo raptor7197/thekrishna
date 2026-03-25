@@ -1,6 +1,6 @@
 # Vamsi Krishna's Portfolio 🚀
 
-Yo, welcome to my digital lair where code meets chaos. This ain't your grandma's portfolio – it's a React-powered beast built with Vite, because who has time for slow builds? 😎
+yoooo, welcome to my digital lair where code meets chaos. This ain't your grandma's portfolio – it's a React-powered beast built with Vite, because who has time for slow builds? 😎
 
 ## Quick Setup (Don't Mess This Up)
 

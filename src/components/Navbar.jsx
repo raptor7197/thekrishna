@@ -31,7 +31,7 @@ const Navbar = () => {
             
             <div className="status-indicator">
                 <span className="status-dot"></span>
-                <span className="status-text">Available to work</span>
+                <span className="status-text">Chasing Dreams</span>
             </div>
 
             <div className="mobile-menu-icon" onClick={toggleMenu}>
