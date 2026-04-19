@@ -113,6 +113,24 @@
     width: 100%;
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-text {
+    margin: 0;
+}
+
+.footer-name {
+    margin: 0;
+}
+
+.footer-name p {
+    margin: 0;
+}
+
 .trail-image {
     position: fixed;
     width: 150px;
@@ -145,6 +163,15 @@
 
     .social-links {
         justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .social-links a {
+        font-size: 1rem;
+    }
+
+    .social-links a svg {
+        font-size: 1.2rem;
     }
 
     .contact-title {
@@ -153,5 +180,19 @@
 
     .contact-email {
         font-size: 1.5rem;
+    }
+
+    .footer-content {
+        align-items: center;
+    }
+
+    .footer-text {
+        font-size: 0.75rem;
+    }
+
+    .footer-name p {
+        font-size: clamp(2.5rem, 12vw, 4.5rem) !important;
+        line-height: 1;
+        padding-top: 10px;
     }
 }

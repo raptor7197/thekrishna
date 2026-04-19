@@ -11,7 +11,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
-    height: 100vh;
+    min-height: 100vh;
     /* Occupy full viewport for the pin */
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
     position: relative;
     width: 100%;
     /* Ensure height accommodates the stack */
-    height: 50vh;
+    height: 80vh;
     /* We don't need flex column anymore as cards are absolute */
 }
 
@@ -90,7 +90,7 @@
     font-size: 1.2rem;
     margin-top: 5px;
     display: block;
-    font-family: 'Goldman', cursive;
+    font-family: "Goldman", cursive;
     letter-spacing: 0.05em;
 }
 
@@ -128,4 +128,35 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     color: #aaa;
+}
+
+@media (max-width: 768px) {
+    .card-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card-title h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-company {
+        font-size: 1rem;
+    }
+
+    .card-year {
+        align-self: flex-start;
+        font-size: 0.9rem;
+    }
+
+    .stack-card {
+        padding: 20px;
+        height: 50vh;
+        max-height: none;
+        overflow-y: auto;
+    }
+
+    .stack-header h2 {
+        font-size: 2rem;
+    }
 }

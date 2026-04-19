@@ -107,14 +107,12 @@ const Contact = () => {
             </a>
           </div>
           <footer className="footer">
-            <p>
-              {/* &copy; {new Date().getFullYear()}{" "}*/}
-              Designed and developed by 
-              <blockquote className="quote">
+            <div className="footer-content">
+              <p className="footer-text">Designed and developed by</p>
+              <blockquote className="quote footer-name">
                 <p>Vamsi Krishna</p>
               </blockquote>
-              
-            </p>
+            </div>
           </footer>
         </div>
       </div>
