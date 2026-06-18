@@ -24,6 +24,8 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <nav className="navbar" ref={navRef}>
       <a href="/">
@@ -42,26 +44,22 @@ const Navbar = () => {
 
       <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
         <li>
-          <a href="/#about" onClick={() => setIsMenuOpen(false)}>
+          <a href="/#about" onClick={(e) => handleNavClick(e, "#about")}>
             About
           </a>
         </li>
         <li>
-          <a href="/#work" onClick={() => setIsMenuOpen(false)}>
+          <a href="/#work" onClick={(e) => handleNavClick(e, "#work")}>
             Projects
           </a>
         </li>
         <li>
-          <a href="/#skills" onClick={() => setIsMenuOpen(false)}>
+          <a href="/#skills" onClick={(e) => handleNavClick(e, "#skills")}>
             Skills
           </a>
         </li>
         <li>
-          <a
-            href="/setup"
-            style={{ color: "#0cf72bff" }}
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <a href="/setup" style={{ color: "#0cf72bff" }} onClick={closeMenu}>
             my setup
           </a>
         </li>
@@ -69,17 +67,13 @@ const Navbar = () => {
           <a
             href="/work-experience"
             style={{ color: "#00aeffff" }}
-            onClick={() => setIsMenuOpen(false)}
+            onClick={closeMenu}
           >
             work
           </a>
         </li>
         <li>
-          <a
-            href="./Vamsi Krishna Resume.pdf"
-            download
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <a href="./Vamsi Krishna Resume.pdf" download onClick={closeMenu}>
             resume
           </a>
         </li>
