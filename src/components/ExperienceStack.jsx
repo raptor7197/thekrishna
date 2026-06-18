@@ -61,79 +61,69 @@ const ExperienceStack = () => {
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const cards = cardsRef.current;
-      const spacing = 60; // Offset between stacked cards
+    if (!sectionRef.current) return;
 
-      // Initial positioning: Set cards to roughly start below the view
-      // But we actually want to animate them IN.
-      // Since they are absolute, they all default to top:0 if not changed.
-      // We want them to end up at top: index * spacing
-      // And start from: top: 100vh + (index * spacing)?
+    try {
+      const ctx = gsap.context(() => {
+        const cards = cardsRef.current;
+        const spacing = 60;
 
-      // GSAP Timeline to coordinate the "stacking"
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 10%", // When section hits 10% from the top of viewport
-          end: "+=300%", // Pin for 300% of viewport height (adjust for speed)
-          pin: true,
-          scrub: 2, // Smooth interaction
-          anticipatePin: 1,
-          // markers: true, // debug
-          invalidateOnRefresh: true,
-        },
-      });
-
-      cards.forEach((card, i) => {
-        // Final position we want the card to be stuck at
-        const finalPos = i * spacing;
-
-        // Set initial state
-        gsap.set(card, {
-          y: window.innerHeight + 100, // clearly off screen
-          opacity: 1,
-          scale: 1,
-          zIndex: i + 1,
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 10%",
+            end: "+=300%",
+            pin: true,
+            scrub: 2,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
         });
 
-        // Add animation to timeline
-        // We stagger their entries based on the scroll progress
-        // The 'stagger' logic is manual here to control overlaps
+        cards.forEach((card, i) => {
+          const finalPos = i * spacing;
 
-        tl.to(
-          card,
-          {
-            y: finalPos,
-            duration: 1,
-            ease: "power2.out",
-          },
-          i * 0.5,
-        ); // Stagger start times
-
-        // SCALE EFFECT for previous cards
-        // As the NEXT card (i+1) enters, scale THIS card (i)
-        if (i < cards.length - 1) {
-          // We want this to happen roughly when the next card starts arriving
-          // The next card starts at time: (i+1) * 0.5
-          // It arrives at time: ((i+1) * 0.5) + 1
+          gsap.set(card, {
+            y: window.innerHeight + 100,
+            opacity: 1,
+            scale: 1,
+            zIndex: i + 1,
+          });
 
           tl.to(
             card,
             {
-              scale: 0.95,
-              opacity: 0.8,
-              y: finalPos + 10, // slight push down
-              duration: 1, // Match the incoming card's duration
+              y: finalPos,
+              duration: 1,
               ease: "power2.out",
             },
-            (i + 1) * 0.5,
-          ); // Sync with next card's start
-        }
-      });
-    }, sectionRef);
+            i * 0.5,
+          );
 
-    return () => ctx.revert();
+          if (i < cards.length - 1) {
+            tl.to(
+              card,
+              {
+                scale: 0.95,
+                opacity: 0.8,
+                y: finalPos + 10,
+                duration: 1,
+                ease: "power2.out",
+              },
+              (i + 1) * 0.5,
+            );
+          }
+        });
+      }, sectionRef);
+
+      return () => ctx.revert();
+    } catch (error) {
+      console.error("ExperienceStack GSAP error:", error);
+      gsap.set(cardsRef.current, { clearProps: "all" });
+      cardsRef.current.forEach((card, i) => {
+        gsap.set(card, { y: i * 60, scale: 1, opacity: 1, zIndex: i + 1 });
+      });
+    }
   }, []);
 
   const addToRefs = (el) => {
