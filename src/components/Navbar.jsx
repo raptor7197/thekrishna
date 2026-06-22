@@ -59,7 +59,7 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          <a href="/setup" style={{ color: "#0cf72bff" }} onClick={closeMenu}>
+          <a href="/setup-page" style={{ color: "#0cf72bff" }} onClick={closeMenu}>
             my setup
           </a>
         </li>

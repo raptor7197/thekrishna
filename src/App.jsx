@@ -47,7 +47,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/setup" element={<Setup />} />
+          <Route path="/setup-page" element={<Setup />} />
           <Route path="/work-experience" element={<Work />} />
         </Routes>
       </div>
